@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Personagem {
     int idPersonagem=0;
     String nome;
@@ -23,7 +25,37 @@ public class Personagem {
         return vidaAtual;
     }
 
+
+        public int setManaMaxima(){
+            Random random = new Random();
+            manaMaxima = random.nextInt(11) + nivel*10; 
+            manaAtual = manaMaxima; 
+            return manaMaxima;
+        }
+       
+    
+    
+    public int setVidaMaxima(){
+        Random random = new Random();
+        vidaMaxima = random.nextInt(11) + nivel*10; 
+        vidaAtual = vidaMaxima; 
+        return vidaMaxima;
+    }
+
     public void usarHabilidade(){
         
+    }
+
+   
+
+    @Override
+    public String toString() {
+        return "Personagem{" +
+                "id=" + idPersonagem +
+                ", nome='" + nome + '\'' +
+                ", nivel=" + nivel +
+                ", vida=" + vidaAtual + "/" + vidaMaxima +
+                ", mana=" + manaAtual + "/" + manaMaxima +
+                '}';
     }
 }
