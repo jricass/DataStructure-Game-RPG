@@ -1,4 +1,4 @@
-  import java.util.Scanner;
+import java.util.Scanner;
 
   public class Jogador {
       int id=0;
@@ -58,8 +58,8 @@
       String temp = scan.next();
 
       for(int i=0;i<lista.size();i++){
-        if(temp.equals(lista.personagem.nome)){
-           
+        if(temp.equals(lista.selecionar_index(i))){
+            System.out.println("personagem selecionado");
         }
       }
     }
