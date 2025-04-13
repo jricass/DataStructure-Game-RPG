@@ -1,9 +1,9 @@
 public class Node<T> {
-    T data;  
+    Personagem data;  
     Node<T> next, prev;  
 
    
-    public Node(T data) {
+    public Node(Personagem data) {
         this.data = data;
         this.next = null;
         this.prev = null;
