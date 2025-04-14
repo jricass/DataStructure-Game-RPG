@@ -1,6 +1,6 @@
-package br.projeto.RPG.Player.PlayerList;
+package br.projeto.rpg.DataStructures.PlayerList;
 
-import br.projeto.RPG.Player.Player;
+import br.projeto.rpg.Player.Player;
 
 public class PlayerList {
 
@@ -57,4 +57,27 @@ public class PlayerList {
         System.out.println(current.getData().getName() + "] <-- Tail");
     }
 
+    public PlayerNode getHead() {
+        return head;
+    }
+
+    public void setHead(PlayerNode head) {
+        this.head = head;
+    }
+
+    public PlayerNode getTail() {
+        return tail;
+    }
+
+    public void setTail(PlayerNode tail) {
+        this.tail = tail;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
 }

@@ -1,6 +1,6 @@
-package br.projeto.RPG.Player.PlayerList;
+package br.projeto.rpg.DataStructures.PlayerList;
 
-import br.projeto.RPG.Player.Player;
+import br.projeto.rpg.Player.Player;
 
 public class PlayerNode {
 

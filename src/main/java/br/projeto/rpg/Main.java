@@ -1,6 +1,6 @@
-package br.projeto.RPG;
+package br.projeto.rpg;
 
-import br.projeto.RPG.UI.UI;
+import br.projeto.rpg.UI.UI;
 
 public class Main {
     public static void main(String[] args) {

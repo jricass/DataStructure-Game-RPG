@@ -1,4 +1,4 @@
-package br.projeto.RPG.Player;
+package br.projeto.rpg.Player;
 
 public class Player {
 

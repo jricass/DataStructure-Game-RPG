@@ -1,7 +1,7 @@
-package br.projeto.RPG.UI;
+package br.projeto.rpg.UI;
 
-import br.projeto.RPG.Player.Player;
-import br.projeto.RPG.Player.PlayerList.PlayerList;
+import br.projeto.rpg.Player.Player;
+import br.projeto.rpg.DataStructures.PlayerList.PlayerList;
 
 import java.util.Scanner;
 
@@ -9,10 +9,11 @@ public class UI {
 
     Scanner sc = new Scanner(System.in);
 
-
-    public void interface1() {
+    public void userMenu() {
 
         PlayerList listPlayers = new PlayerList();
+        Player admin = new Player("admin", "admin");
+        listPlayers.addHead(admin);
         int escolha = 0;
 
         while (escolha != 4) {
@@ -39,7 +40,6 @@ public class UI {
                     String nomeLogin = sc.next();
                     System.out.println("Digite sua Senha: ");
                     String senhaLogin = sc.next();
-                    interface2();
                     break;
                 case 3:
                     System.out.println("Usuários Cadastrados:");
@@ -54,38 +54,4 @@ public class UI {
             }
         }
     }
-
-    public void interface2() {
-        int escolha = 0;
-
-        while (escolha != 5) {
-            System.out.println("==========RPG FOFO==========");
-            System.out.println("1. Iniciar Novo Jogo");
-            System.out.println("2. Consultar Jogos Salvos");
-            System.out.println("4. PVP");
-            System.out.println("5. Sair");
-            escolha = sc.nextInt();
-            switch (escolha) {
-                case 1:
-                    System.out.println("Não Implementado");
-                    break;
-                case 2:
-                    System.out.println("Não Implementado");
-                    break;
-                case 3:
-                    System.out.println("Não Implementado");
-                    break;
-                case 4:
-                    System.out.println("Não Implementado");
-                    break;
-                case 5:
-                    System.out.println("Não Implementado");
-                    break;
-                default:
-                    System.out.print("Opção Inválida!");
-            }
-        }
-
-    }
-
 }
