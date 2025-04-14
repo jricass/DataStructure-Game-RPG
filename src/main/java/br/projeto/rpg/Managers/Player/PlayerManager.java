@@ -12,7 +12,22 @@ public class PlayerManager {
         playerList = new PlayerList();
     }
 
-    public boolean cadastrarPlayer(String nome, String senha) { return false; }
+    public boolean cadastrarPlayer(String nome, String senha) {
+        if (buscarPlayer(nome) != null) {
+            return false;
+        }
+        Player newPlayer = new Player(nome, senha);
+        playerList.addHead(newPlayer);
+        return true;
+    }
+
+    public Player login(String nome, String senha) {
+        Player encontrado = buscarPlayer(nome);
+        if (encontrado != null && encontrado.getPassword().equals(senha)) {
+            return encontrado;
+        }
+        return null;
+    }
 
     public Player buscarPlayer(String nome) {
         PlayerNode current = playerList.getHead();
@@ -23,5 +38,9 @@ public class PlayerManager {
             current = current.getNext();
         }
         return null;
+    }
+
+    public void listarPlayers() {
+        playerList.printFromHead();
     }
 }
