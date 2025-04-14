@@ -98,6 +98,11 @@ public class UI {
                     break;
                 case 2:
                     pm.listarPlayersEnhanced();
+                    System.out.print("Selecione, a partir do Index, o Player que deseja excluir: ");
+                    int escolhaDeleta = sc.nextInt();
+                    pm.deletarPlayer(escolhaDeleta);
+                    System.out.println("Player Excluido com sucesso!");
+                    pm.listarPlayersEnhanced();
                     esperarEnter();
                     break;
                 case 3:

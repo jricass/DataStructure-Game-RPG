@@ -51,4 +51,8 @@ public class PlayerManager {
     public void listarPlayersEnhanced() {
         playerList.enhancedPrint();
     }
+
+    public void deletarPlayer(int index) {
+        playerList.delete(index);
+    }
 }

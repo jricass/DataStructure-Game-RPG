@@ -79,27 +79,31 @@ public class PlayerList {
     public Player delete(int position) {
         if (isEmpty()) {
             System.out.println("Lista vazia");
-        } else if (position < 0 || position > this.size) {
-            System.out.println("Posição Inválida");
-        } else if (position == this.size) {
-            System.out.println("Posição Inválida");
-        } else if (position == 0) {
-            return this.removeHead();
-        } else if (position == this.size - 1) {
-            return this.removeTail();
-        } else {
-            PlayerNode prevPlayerNode = this.getLlNode(position - 1);
-            PlayerNode current = prevPlayerNode.getNext();
-            PlayerNode nextPlayerNode = current.getNext();
-
-            prevPlayerNode.setNext(nextPlayerNode);
-            current.setNext(null);
-            this.size--;
-
-            return current.getData();
+            return null;
         }
-        return null;
+        if (position < 0 || position >= this.size) {
+            System.out.println("Posição Inválida");
+            return null;
+        }
+
+        if (position == 0) {
+            return this.removeHead();
+        }
+        if (position == this.size - 1) {
+            return this.removeTail();
+        }
+
+        PlayerNode prevPlayerNode = this.getLlNode(position - 1);
+        PlayerNode current = prevPlayerNode.getNext();
+        PlayerNode nextPlayerNode = current.getNext();
+
+        prevPlayerNode.setNext(nextPlayerNode);
+        current.setNext(null);
+        this.size--;
+
+        return current.getData();
     }
+
 
     private PlayerNode getLlNode(int pos) {
         if (pos < 0 && pos > this.size) {
@@ -128,19 +132,20 @@ public class PlayerList {
 
     public void enhancedPrint() {
         PlayerNode current = this.head;
-        int index = 1;
+        int index = 0;
 
         if (head == null) {
             System.out.println("Nenhum Jogador Cadastrado...");
             return;
         }
 
-        System.out.println("==========Lista de Jogadores Cadastrados==========");
+        System.out.println("==========Lista de Usuários Cadastrados==========");
         while (current != null) {
             System.out.println(index + " - " + current.getData().getName());
             current = current.getNext();
             index++;
         }
+        System.out.println("=================================================");
     }
 
     // Getters e Setters
