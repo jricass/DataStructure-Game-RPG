@@ -45,6 +45,7 @@ public class PlayerList {
             newNode.setNext(this.tail);
             this.tail = newNode;
         }
+        this.size++;
     }
 
     public void printFromHead() {
@@ -55,6 +56,23 @@ public class PlayerList {
             current = current.getNext();
         }
         System.out.println(current.getData().getName() + "] <-- Tail");
+    }
+
+    public void enhancedPrint() {
+        PlayerNode current = this.head;
+        int index = 1;
+
+        if (head == null) {
+            System.out.println("Nenhum Jogador Cadastrado");
+            return;
+        }
+
+        System.out.println("==========Lista de Jogadores Cadastrados ==========");
+        while (current != null) {
+            System.out.println(index + " - " + current.getData().getName());
+            current = current.getNext();
+            index++;
+        }
     }
 
     // Getters e Setters
@@ -81,4 +99,5 @@ public class PlayerList {
     public void setSize(int size) {
         this.size = size;
     }
+
 }

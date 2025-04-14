@@ -7,7 +7,7 @@ public class Main {
 
         UI ui = new UI();
 
-        ui.interface1();
+        ui.telaInicial();
 
 
     }

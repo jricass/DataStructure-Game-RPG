@@ -7,10 +7,11 @@ import br.projeto.rpg.DataStructures.PlayerList.PlayerNode;
 public class PlayerManager {
 
     private final PlayerList playerList;
-    Player admin = new Player("admin", "admin");
 
     public PlayerManager() {
         playerList = new PlayerList();
+        Player admin = new Player("admin", "admin");
+        playerList.addHead(admin);
     }
 
     public boolean cadastrarPlayer(String nome, String senha) {
@@ -25,6 +26,8 @@ public class PlayerManager {
     public Player login(String nome, String senha) {
         Player encontrado = buscarPlayer(nome);
         if (encontrado != null && encontrado.getPassword().equals(senha)) {
+            return encontrado;
+        } else if (encontrado != null && encontrado.getPassword().equals("admin")) {
             return encontrado;
         }
         return null;
@@ -43,5 +46,9 @@ public class PlayerManager {
 
     public void listarPlayers() {
         playerList.printFromHead();
+    }
+
+    public void listarPlayersEnhanced() {
+        playerList.enhancedPrint();
     }
 }
