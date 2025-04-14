@@ -43,8 +43,12 @@ public class UI {
                     String senhaLogin = sc.next();
                     Player jogador = pm.login(nomeLogin, senhaLogin);
                     if (jogador != null) {
-                        System.out.println("Login bem-sucedido!");
-                        telaJogo(jogador);
+                        if (jogador.getName().equals("admin")) {
+                            telaAdmin();
+                        } else {
+                            System.out.println("Login bem-sucedido!");
+                            telaJogo(jogador);
+                        }
                     } else {
                         System.out.println("Nome ou Senha Invalido!");
                     }
@@ -64,6 +68,28 @@ public class UI {
                     break;
                 default:
                     System.out.println("Opção Inválida!");
+            }
+        }
+    }
+
+    public void telaAdmin() {
+        int escolha = 0;
+        while (escolha != 3) {
+            System.out.println("==========Admin Screen==========");
+            System.out.println("1. Listar Usuarios Cadastrados");
+            System.out.println("2. Excluir Usuario");
+            System.out.println("3. Sair");
+            switch (escolha) {
+                case 1:
+                    System.out.println("Não Implementado");
+                    break;
+                case 2:
+                    System.out.println("Não Implementado");
+                    break;
+                case 3:
+                    System.out.println("Não Implementado");
+                    break;
+                default:
             }
         }
     }
