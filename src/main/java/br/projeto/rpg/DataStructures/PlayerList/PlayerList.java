@@ -48,6 +48,74 @@ public class PlayerList {
         this.size++;
     }
 
+    public Player removeHead() {
+        if (isEmpty()) {
+            System.out.println("Lista vazia");;
+        } else if (size == 1) {
+            return this.removeHead();
+        }
+        Player removed = this.head.getData();
+        this.head = this.head.getNext();
+        this.size--;
+
+        return removed;
+    }
+
+    public Player removeTail() {
+        if (isEmpty()) {
+            System.out.println("Lista vazia");;
+        } else if (size == 1) {
+            return this.removeHead();
+        }
+        PlayerNode prevLast = this.getLlNode(this.size - 2);
+        Player removed = prevLast.getNext().getData();
+        prevLast.setNext(null);
+        this.tail = prevLast;
+        this.size--;
+
+        return removed;
+    }
+
+    public Player delete(int position) {
+        if (isEmpty()) {
+            System.out.println("Lista vazia");
+        } else if (position < 0 || position > this.size) {
+            System.out.println("Posição Inválida");
+        } else if (position == this.size) {
+            System.out.println("Posição Inválida");
+        } else if (position == 0) {
+            return this.removeHead();
+        } else if (position == this.size - 1) {
+            return this.removeTail();
+        } else {
+            PlayerNode prevPlayerNode = this.getLlNode(position - 1);
+            PlayerNode current = prevPlayerNode.getNext();
+            PlayerNode nextPlayerNode = current.getNext();
+
+            prevPlayerNode.setNext(nextPlayerNode);
+            current.setNext(null);
+            this.size--;
+
+            return current.getData();
+        }
+        return null;
+    }
+
+    private PlayerNode getLlNode(int pos) {
+        if (pos < 0 && pos > this.size) {
+            System.out.println("Posição Inválida");
+        }
+        PlayerNode current = this.head;
+        for (int i = 0; i < pos; i++) {
+            current = current.getNext();
+        }
+        return current;
+    }
+
+    public Player getByIndex(int pos) {
+        return this.getLlNode(pos).getData();
+    }
+
     public void printFromHead() {
         PlayerNode current = this.head;
         System.out.print("Head --> [");
@@ -63,11 +131,11 @@ public class PlayerList {
         int index = 1;
 
         if (head == null) {
-            System.out.println("Nenhum Jogador Cadastrado");
+            System.out.println("Nenhum Jogador Cadastrado...");
             return;
         }
 
-        System.out.println("==========Lista de Jogadores Cadastrados ==========");
+        System.out.println("==========Lista de Jogadores Cadastrados==========");
         while (current != null) {
             System.out.println(index + " - " + current.getData().getName());
             current = current.getNext();

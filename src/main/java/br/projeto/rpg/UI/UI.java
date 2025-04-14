@@ -97,7 +97,7 @@ public class UI {
                     esperarEnter();
                     break;
                 case 2:
-                    System.out.println("Não Implementado");
+                    pm.listarPlayersEnhanced();
                     esperarEnter();
                     break;
                 case 3:
@@ -152,7 +152,7 @@ public class UI {
     }
 
     public void esperarEnter() {
-        System.out.print("Aperte ENTER para voltar... ");
+        System.out.print("Aperte ENTER para continuar... ");
         sc.nextLine();
         sc.nextLine();
     }
