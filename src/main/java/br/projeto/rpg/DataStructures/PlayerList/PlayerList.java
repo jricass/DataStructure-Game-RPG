@@ -57,6 +57,7 @@ public class PlayerList {
         System.out.println(current.getData().getName() + "] <-- Tail");
     }
 
+    // Getters e Setters
     public PlayerNode getHead() {
         return head;
     }

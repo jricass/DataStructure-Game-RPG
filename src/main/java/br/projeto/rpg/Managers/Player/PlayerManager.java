@@ -6,7 +6,7 @@ import br.projeto.rpg.DataStructures.PlayerList.PlayerNode;
 
 public class PlayerManager {
 
-    private PlayerList playerList;
+    private final PlayerList playerList;
 
     public PlayerManager() {
         playerList = new PlayerList();

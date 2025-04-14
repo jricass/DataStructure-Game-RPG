@@ -2,7 +2,6 @@ package br.projeto.rpg.UI;
 
 import br.projeto.rpg.Managers.Player.PlayerManager;
 import br.projeto.rpg.Player.Player;
-import br.projeto.rpg.DataStructures.PlayerList.PlayerList;
 
 import java.util.Scanner;
 
@@ -15,12 +14,13 @@ public class UI {
 
         int escolha = 0;
 
-        while (escolha != 4) {
+        while (escolha != 5) {
             System.out.println("=======TELA INICIAL=======");
             System.out.println("1. Cadastrar Usuário");
             System.out.println("2. Fazer Login");
             System.out.println("3. Consultar Usuários Cadastrados");
-            System.out.println("4. Sair");
+            System.out.println("4. Créditos");
+            System.out.println("5. Sair");
             System.out.print("Escolha uma Opção: ");
             escolha = sc.nextInt();
 
@@ -45,6 +45,8 @@ public class UI {
                     if (jogador != null) {
                         System.out.println("Login bem-sucedido!");
                         telaJogo(jogador);
+                    } else {
+                        System.out.println("Nome ou Senha Invalido!");
                     }
                     break;
                 case 3:
@@ -52,6 +54,12 @@ public class UI {
                     pm.listarPlayers();
                     break;
                 case 4:
+                    System.out.println("==========Créditos==========");
+                    System.out.println("João Ricardo");
+                    System.out.println("Carlos Eduardo");
+                    System.out.println("Davi Maciel");
+                    break;
+                case 5:
                     System.out.println("Saindo do programa...");
                     break;
                 default:
@@ -62,5 +70,31 @@ public class UI {
 
     public void telaJogo(Player jogador) {
         System.out.println("Bem Vindo Aventureiro " + jogador.getName() + "...");
+
+        int escolha = 0;
+        while (escolha != 4) {
+            System.out.println("=======JOGO=======");
+            System.out.println("1. Iniciar Novo Jogo");
+            System.out.println("2. Consultar Jogos Salvos");
+            System.out.println("3. PVP");
+            System.out.println("4. Sair");
+            System.out.print("Escolha uma Opção: ");
+            escolha = sc.nextInt();
+            switch (escolha) {
+                case 1:
+                    System.out.println("Não Implementado");
+                    break;
+                case 2:
+                    System.out.println("Não Implementado");
+                    break;
+                case 3:
+                    System.out.println("Não Implementado");
+                    break;
+                case 4:
+                    System.out.println("Saindo do programa...");
+                    break;
+                default:
+            }
+        }
     }
 }
